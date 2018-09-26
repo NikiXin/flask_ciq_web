@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Node list for {{project}} from  {{customer}}</h1>
+        <br>
+        <div class="list-group">
+            {% for node in nodes %}
+	    <a href="/customer_node_detail?m_customer={{customer}}&m_project={{project}}&m_node={{node}}" class="list-group-item">{{node}}</a>
+            {% endfor %}
+        </div>
+        <p><a href="/">Back to portal</a> </p>
+
+{% endblock %}

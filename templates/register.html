@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <h1>Please Register a new user</h1>
+        <br>
+        <form action="" method="post">
+            <input type="text" placeholder="Username" name="username" value="{{request.form.username}}">
+            <input type="text" placeholder="Favorite Color" name="color" value="{{request.form.color}}">
+            <input type="text" placeholder="Cats or Dogs" name="animal" value="{{request.form.animal}}">
+            <input class="btn btn-default" type="submit" value="Register">
+        </form>
+register.html
+{% endblock %}

@@ -1,0 +1,151 @@
+>MTAS
+MTAS_SC1_AZ = nova:compute-0-4.domain.tld
+MTAS_SC2_AZ = nova:compute-0-11.domain.tld
+MTAS_PL3_AZ = nova:compute-0-7.domain.tld
+MTAS_PL4_AZ = nova:compute-0-6.domain.tld
+
+>CSCF
+CSCF_SC1_AZ = nova:compute-0-1.domain.tld
+CSCF_SC2_AZ = nova:compute-0-2.domain.tld
+CSCF_PL3_AZ = nova:compute-0-5.domain.tld
+CSCF_PL4_AZ = nova:compute-0-7.domain.tld
+
+>HSS
+HSS_SC1_AZ = nova:compute-0-3.domain.tld
+HSS_SC2_AZ = nova:compute-0-5.domain.tld
+HSS_PL3_AZ = nova:compute-0-6.domain.tld
+HSS_PL4_AZ = nova:compute-0-9.domain.tld
+
+>EME
+EME_SC1_AZ = nova:compute-0-3.domain.tld
+EME_SC2_AZ = nova:compute-0-6.domain.tld
+EME_PL3_AZ = nova:compute-0-7.domain.tld
+EME_PL4_AZ = nova:compute-0-9.domain.tld
+
+>NELS
+NELS_SC1_AZ = nova:compute-0-3.domain.tld
+NELS_SC2_AZ = nova:compute-0-10.domain.tld
+
+>ENM
+ENM_lvs_AZ = nova:compute-1-7.domain.tld
+ENM_nfs_AZ = nova:compute-1-1.domain.tld
+ENM_sentinel_AZ = nova:compute-1-2.domain.tld
+ENM_cm_AZ = nova:compute-1-1.domain.tld
+ENM_impex_AZ = nova:compute-1-8.domain.tld
+ENM_elasticsearch_AZ = nova:compute-1-4.domain.tld
+ENM_jms_AZ = nova:compute-1-2.domain.tld
+ENM_models_AZ = nova:compute-1-8.domain.tld
+ENM_mysql_AZ = nova:compute-1-1.domain.tld
+ENM_opendj_AZ = nova:compute-1-7.domain.tld
+ENM_postgres_AZ = nova:compute-1-8.domain.tld
+ENM_versant_AZ = nova:compute-1-8.domain.tld
+ENM_fm_AZ = nova:compute-1-6.domain.tld
+ENM_medcore_AZ = nova:compute-1-6.domain.tld
+ENM_mscm_AZ = nova:compute-1-8.domain.tld
+ENM_msfm_AZ = nova:compute-1-7.domain.tld
+ENM_mspm_AZ = nova:compute-1-1.domain.tld
+ENM_mscmce_AZ = nova:compute-1-3.domain.tld
+ENM_mssnmpfm_AZ = nova:compute-1-3.domain.tld
+ENM_pm_AZ = nova:compute-1-7.domain.tld
+ENM_platform_AZ = nova:compute-1-1.domain.tld
+ENM_presentation_AZ = nova:compute-1-2.domain.tld
+ENM_security_AZ = nova:compute-1-3.domain.tld
+ENM_sps_AZ = nova:compute-1-4.domain.tld
+ENM_sso_AZ = nova:compute-1-7.domain.tld
+
+>EPG
+EPG_VRP-21_AZ = nova:compute-1-5.domain.tld
+EPG_VRP-22_AZ = nova:compute-1-7.domain.tld
+EPG_VSF0-1_AZ = nova:compute-1-4.domain.tld
+EPG_VSF0-2_AZ = nova:compute-1-8.domain.tld
+EPG_VSF0-4_AZ = nova:compute-1-1.domain.tld
+EPG_VSF0-5_AZ = nova:compute-1-2.domain.tld
+EPG_VSF0-6_AZ = nova:compute-1-3.domain.tld
+EPG_VSF0-7_AZ = nova:compute-0-10.domain.tld
+
+>MME
+MME_FSB-111_AZ = nova:compute-1-5.domain.tld
+MME_FSB-113_AZ = nova:compute-1-6.domain.tld
+MME_GPB-21_AZ = nova:compute-1-7.domain.tld
+MME_GPB-22_AZ = nova:compute-0-11.domain.tld
+MME_GPB-23_AZ = nova:compute-0-3.domain.tld
+MME_GPB-24_AZ = nova:compute-1-2.domain.tld
+MME_NCB-115_AZ = nova:compute-1-2.domain.tld
+MME_NCB-19_AZ = nova:compute-1-4.domain.tld
+
+>WMG
+WMG_VRP-21_AZ = nova:compute-1-3.domain.tld
+WMG_VRP-22_AZ = nova:compute-1-4.domain.tld
+WMG_VSF0-1_AZ = nova:compute-1-5.domain.tld
+WMG_VSF0-2_AZ = nova:compute-1-6.domain.tld
+
+>IPWDNS
+IPWDNS_SC1_AZ = nova:compute-0-7.domain.tld
+IPWDNS_SC2_AZ = nova:compute-0-6.domain.tld
+IPWDNS_PL3_AZ = nova:compute-0-3.domain.tld
+IPWDNS_PL4_AZ = nova:compute-0-5.domain.tld
+
+>IPWAAA
+IPWAAA_SC1_AZ = nova:compute-1-2.domain.tld
+IPWAAA_SC2_AZ = nova:compute-1-7.domain.tld
+IPWAAA_PL3_AZ = nova:compute-0-10.domain.tld
+IPWAAA_PL4_AZ = nova:compute-0-9.domain.tld
+
+>CUDB
+CUDB_SC1_AZ = nova:compute-0-7.domain.tld
+CUDB_SC2_AZ = nova:compute-0-11.domain.tld
+CUDB_PL3_AZ = nova:compute-1-7.domain.tld
+CUDB_PL4_AZ = nova:compute-1-2.domain.tld
+CUDB_PL5_AZ = nova:compute-0-5.domain.tld
+CUDB_PL6_AZ = nova:compute-0-6.domain.tld
+
+>AFG
+AFG_mn_AZ = nova:compute-0-8.domain.tld
+AFG_mon_AZ = nova:compute-0-8.domain.tld
+AFG_ddc_AZ = nova:compute-0-9.domain.tld
+AFG_ts_AZ = nova:compute-0-12.domain.tld
+AFG_slb_AZ = nova:compute-0-11.domain.tld
+
+>SBG
+SBG_SC1_AZ = compute-0-3.domain.tld
+SBG_SC2_AZ = compute-0-5.domain.tld
+SBG_PL3_AZ = compute-0-6.domain.tld
+SBG_PL4_AZ = compute-0-8.domain.tld
+
+>DSC
+DSC_SC1_AZ = compute-0-8.domain.tld
+DSC_SC2_AZ = compute-0-9.domain.tld
+DSC_PL3_AZ = compute-0-6.domain.tld
+DSC_PL4_AZ = compute-0-3.domain.tld
+
+>EDA
+EDA_PL1_AZ = compute-1-1.domain.tld
+EDA_PL2_AZ = compute-1-3.domain.tld
+EDA_PL3_AZ = compute-1-7.domain.tld
+
+>BGF
+BGF_PL1_AZ = compute-0-11.domain.tld
+BGF_PL2_AZ = compute-0-9.domain.tld
+
+>MRF
+MRF_PL1_AZ = compute-0-5.domain.tld
+MRF_PL2_AZ = compute-0-8.domain.tld
+
+>SAPC
+SAPC_SC1_AZ = compute-0-9.domain.tld
+SAPC_SC2_AZ = compute-0-7.domain.tld
+SAPC_PL3_AZ = compute-1-5.domain.tld
+SAPC_PL4_AZ = compute-1-6.domain.tld
+
+>ENM
+ENM_LCMDB_AZ = compute-1-1.domain.tld
+ENM_LCMSERVICE_AZ = compute-1-2.domain.tld
+
+>CSC
+CSC_CNA_AZ = nova:compute-0-11.domain.tld
+
+>IPWeDNS
+IPWeDNS_SC1_AZ = nova:compute-1-1.domain.tld
+IPWeDNS_SC2_AZ = nova:compute-1-3.domain.tld
+IPWeDNS_PL3_AZ = nova:compute-1-7.domain.tld
+IPWeDNS_PL4_AZ = nova:compute-1-8.domain.tld

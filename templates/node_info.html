@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <h1>{{node}}</h1>
+        <br>
+<ul class="list-group">
+    {% for key,value in node_info.items() %}
+        <li class="list-group-item">{{key}} <span class="badge">{{value}}</span></li>
+    {% endfor %}
+</ul>
+<p><a href="/">Back to portal</a> </p>
+
+{% endblock %}

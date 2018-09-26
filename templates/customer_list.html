@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <h1>Welcome to CIQ web server</h1>
+        <h2>Please choose customer:</h2>
+        <br>
+        <div class="list-group">
+            {% for customer in customers %}
+            <a href="/customer_project_list?m_customer={{customer}}" class="list-group-item">{{customer}}</a>
+            {% endfor %}
+        </div>
+        <a href="/create_project">Create a new Customer</a></p>
+
+
+
+{% endblock %}

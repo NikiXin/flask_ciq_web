@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <h1>Please Create a New Project</h1>
+        <br>
+        <form action="" method="post">
+            <input type="text" placeholder="Customer" name="customer" value="{{request.form.customer}}">
+            <input type="text" placeholder="ProjectName" name="projectName" value="{{request.form.projectName}}">
+            <input class="btn btn-default" type="submit" value="Create">
+        </form>
+<p><a href="/">Back to portal</a> </p>
+{% endblock %}

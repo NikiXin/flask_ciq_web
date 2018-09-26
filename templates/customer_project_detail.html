@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <h1>Project detail for {{project}}</h1>
+        <br>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+            {% for key,value in ciq.items() %}
+                <li><a href="/node_info?customer={{customer}}&project={{project}}&node={{key}}&node_info={{value}}">{{key}}</a></li>
+            {% endfor %}
+    </ul>
+  </div>
+    <p><a href="/">Back to portal</a> </p>
+</nav>
+
+{% endblock %}
