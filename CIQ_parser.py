@@ -50,6 +50,9 @@ class CIQ_parser:
             for i in range(6, len(m_sheet["A"])):
                 if (m_sheet["B"][i].value is None) or (m_sheet["A"][i].value is None):
                     continue
+                if(type(m_sheet["B"][i].value) == str):
+                    if(m_sheet["B"][i].value.isspace()):
+                        continue
                 if "CIDR" in m_sheet["A"][i].value:
                     try:
                         class_str = m_sheet["A"][i].value.split("_CIDR")[0]

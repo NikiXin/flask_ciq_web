@@ -3,7 +3,8 @@
 
 <h1>{{node}} for {{project}} from  {{customer}}</h1>
         <br>
-	<form action="/customer_node_modify?customer={{customer}}&project={{project}}&node={{node}}" method="Post">
+<p><a href="/">Back to portal</a> </p>
+		<form action="/customer_node_modify?customer={{customer}}&project={{project}}&node={{node}}" method="Post">
             {% for key,value in attrs.items() %}
 	    {{key}}:
 	    <input type="text" value={{value}} name={{key}}>
@@ -12,6 +13,6 @@
 	    <br>
 	    <input type="submit" value="Save">
         </form>
-<p><a href="/">Back to portal</a> </p>
+
 
 {% endblock %}

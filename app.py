@@ -4,6 +4,7 @@ import os
 import time
 from CIQ_parser import *
 from CIQ_redis import *
+from CIQ_data import *
 
 app = Flask(__name__)
 app.secret_key = "ormuco"
@@ -41,7 +42,20 @@ def getCustomerNode():
     m_customer = var_str[1].rsplit('&')[0].rsplit('=')[1]
     m_project = var_str[1].rsplit('&')[1].rsplit('=')[1]
     m_nodes = my_redis.get_set(m_customer + m_project)
+
     return render_template('customer_node_list.html', customer=m_customer, project=m_project, nodes=m_nodes, error =error)
+
+@app.route('/api/dump', methods=['POST'], strict_slashes=False)
+def dumpExcel():
+    error = None
+    print("api_dump")
+    var_str = request.url.__str__().rsplit('?')
+    m_customer = var_str[1].rsplit('&')[0].rsplit('=')[1]
+    m_project = var_str[1].rsplit('&')[1].rsplit('=')[1]
+    m_ciqData = CiqData(m_customer, m_project)
+    m_ciq = m_ciqData.fetch_ciq_from_redis()
+    m_ciqData.dump_to_excel(m_ciq)
+    return render_template('alert.html', message="Dump data to excel file successfully",error=error)
 
 @app.route('/customer_node_detail')
 def getNodeDetail():

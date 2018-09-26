@@ -3,11 +3,16 @@
 
 <h1>Node list for {{project}} from  {{customer}}</h1>
         <br>
+        <p><a href="/">Back to portal</a> </p>
+        <p><a href="#" class="btn btn-info" role="button">Deploy the project</a></p>
+        <form action="/api/dump?m_customer={{customer}}&m_project={{project}}" method="POST">
+            <input class="btn btn-default" type="submit" value="dump to excel file">
+        </form>
         <div class="list-group">
             {% for node in nodes %}
 	    <a href="/customer_node_detail?m_customer={{customer}}&m_project={{project}}&m_node={{node}}" class="list-group-item">{{node}}</a>
             {% endfor %}
         </div>
-        <p><a href="/">Back to portal</a> </p>
+
 
 {% endblock %}
