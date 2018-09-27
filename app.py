@@ -38,12 +38,22 @@ def getCustomerProject():
 @app.route('/customer_node_list')
 def getCustomerNode():
     error = None
-    var_str = request.url.__str__().rsplit('?')
-    m_customer = var_str[1].rsplit('&')[0].rsplit('=')[1]
-    m_project = var_str[1].rsplit('&')[1].rsplit('=')[1]
+    var_str = request.url.__str__().rsplit('?') 
+    params = var_str[1].rsplit('&')
+    m_customer = params[0].rsplit('=')[1]
+    m_project = params[1].rsplit('=')[1]
     m_nodes = my_redis.get_set(m_customer + m_project)
+<<<<<<< HEAD
 
     return render_template('customer_node_list.html', customer=m_customer, project=m_project, nodes=m_nodes, error =error)
+=======
+    m_active_node = m_nodes.pop()
+    m_active_attrs = my_redis.get_hash(m_customer+m_project+m_active_node)
+    m_dict = {}
+    for node in m_nodes:
+        m_dict[node] = my_redis.get_hash(m_customer+m_project+node)
+    return render_template('customer_node_list2.html', customer=m_customer, project=m_project, nodes=m_dict,active_node=m_active_node, active_attrs=m_active_attrs, error =error)
+>>>>>>> echixie: update tab for node list
 
 @app.route('/api/dump', methods=['POST'], strict_slashes=False)
 def dumpExcel():
@@ -76,13 +86,18 @@ def modifyNodeDetail():
     m_project = var_str[1].rsplit('&')[1].rsplit('=')[1]
     m_node = var_str[1].rsplit('&')[2].rsplit('=')[1]
     m_attrs = my_redis.get_hash(m_customer + m_project + m_node)
-
     new_attrs ={}
 
     for key in m_attrs.keys():
-        new_attrs[key] = request.form[key]
+        new_attrs[key] = request.form[m_node+key]
     my_redis.set_m_hash(new_attrs, m_customer + m_project + m_node)
-    return render_template('customer_node_detail.html',customer=m_customer,project=m_project, node=m_node, attrs=new_attrs, error=error)
+
+    m_nodes = (my_redis.get_set(m_customer+m_project))
+    m_nodes.remove(m_node)
+    m_dict = {}
+    for node in m_nodes:
+        m_dict[node] = my_redis.get_hash(m_customer+m_project+node)
+    return render_template('customer_node_list2.html',customer=m_customer,project=m_project, nodes=m_dict,active_node=m_node, active_attrs=new_attrs, error=error)
 
 
 

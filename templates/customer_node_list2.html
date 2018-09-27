@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Node for {{project}} from  {{customer}}</h1>
+        <br>
+        <ul class="nav nav-tabs">
+	    <li class=active><a data-toggle="tab" href="#{{active_node}}">{{active_node}}</a></li>	
+            {% for node in nodes.keys() %}
+	    <li><a data-toggle="tab" href="#{{node}}">{{node}}</a></li>
+            {% endfor %}
+        </ul>
+
+        <div class="tab-content">
+	    <div id="{{active_node}}"  class="tab-pane fade in active">
+		<h3>{{active_node}}</h3>
+                <form action="/customer_node_modify?customer={{customer}}&project={{project}}&node={{active_node}}" method="Post">
+                    {% for key,value in active_attrs.items() %}
+                    {{key}}:
+		    <input type="text" value={{value}} name={{active_node}}{{key}}>
+                    <br>
+                    {% endfor %}
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+            	
+            {% for node,attrs in nodes.items() %}
+	    <div id="{{node}}"  class="tab-pane fade">
+		<h3>{{node}}</h3>
+                <form action="/customer_node_modify?customer={{customer}}&project={{project}}&node={{node}}" method="Post">
+                    {% for key,value in attrs.items() %}
+                    {{key}}:
+		    <input type="text" value={{value}} name={{node}}{{key}}>
+                    <br>
+                    {% endfor %}
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+
+        <p><a href="/">Back to portal</a> </p>
+
+{% endblock %}
