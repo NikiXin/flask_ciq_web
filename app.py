@@ -43,17 +43,12 @@ def getCustomerNode():
     m_customer = params[0].rsplit('=')[1]
     m_project = params[1].rsplit('=')[1]
     m_nodes = my_redis.get_set(m_customer + m_project)
-<<<<<<< HEAD
-
-    return render_template('customer_node_list.html', customer=m_customer, project=m_project, nodes=m_nodes, error =error)
-=======
     m_active_node = m_nodes.pop()
     m_active_attrs = my_redis.get_hash(m_customer+m_project+m_active_node)
     m_dict = {}
     for node in m_nodes:
         m_dict[node] = my_redis.get_hash(m_customer+m_project+node)
     return render_template('customer_node_list2.html', customer=m_customer, project=m_project, nodes=m_dict,active_node=m_active_node, active_attrs=m_active_attrs, error =error)
->>>>>>> echixie: update tab for node list
 
 @app.route('/api/dump', methods=['POST'], strict_slashes=False)
 def dumpExcel():

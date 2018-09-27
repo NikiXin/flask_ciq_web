@@ -3,6 +3,12 @@
 
 <h1>Node for {{project}} from  {{customer}}</h1>
         <br>
+        <p><a href="/">Back to portal</a> </p>
+        <p><a href="#" class="btn btn-info" role="button">Deploy the project</a></p>
+        <form action="/api/dump?m_customer={{customer}}&m_project={{project}}" method="POST">
+            <input class="btn btn-default" type="submit" value="dump to excel file">
+        </form>
+ 
         <ul class="nav nav-tabs">
 	    <li class=active><a data-toggle="tab" href="#{{active_node}}">{{active_node}}</a></li>	
             {% for node in nodes.keys() %}
@@ -40,6 +46,5 @@
             {% endfor %}
         </div>
 
-        <p><a href="/">Back to portal</a> </p>
 
 {% endblock %}
