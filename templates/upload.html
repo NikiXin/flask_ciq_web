@@ -3,7 +3,7 @@
 
         <h1>Please upload your CIQ for {{customer_var}}</h1>
         <br>
-        <form id="form1" method="POST" action="/api/upload?customer={{customer_var}}&project={{project_var}}" enctype="multipart/form-data">
+        <form id="form1" method="POST" action="/customer_project_upload?customer={{customer_var}}&project={{project_var}}" enctype="multipart/form-data">
             <div>
                 <input id="File1" type="file" name="myfile"/>
                 <input type="submit">submit</input>

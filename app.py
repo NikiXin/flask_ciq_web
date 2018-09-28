@@ -128,7 +128,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
-@app.route('/api/upload', methods=['POST'])
+@app.route('/customer_project_upload', methods=['POST'])
 def api_upload():
     #file_dir = os.path.join(basedir, m_customer)
     print("api_upload")
