@@ -119,7 +119,7 @@ def createProject():
             error = "Project already exists under " + m_customer +", please try again"
             #return render_template('alert.html', message="Project already exists", error=None)
         else:
-            return redirect(url_for('upload', customer=m_customer, project=m_project))
+            return render_template('upload.html', customer_var=m_customer, project_var=m_project)
 
     return render_template('create_project.html', error = error)
 
@@ -128,13 +128,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
-@app.route('/upload?customer=<customer>&project=<project>')
-def upload(customer, project):
-    return render_template('upload.html', customer_var=customer, project_var=project)
-
-
-
-@app.route('/api/upload', methods=['POST'], strict_slashes=False)
+@app.route('/api/upload', methods=['POST'])
 def api_upload():
     #file_dir = os.path.join(basedir, m_customer)
     print("api_upload")
@@ -165,14 +159,17 @@ def api_upload():
                 my_redis.set_set(key, m_customer+m_project)
                 my_redis.set_m_hash(value, m_customer+m_project+key)
 
-        m_nodes = my_ciq.nodesConf.items()
-        m_active_node, m_active_attrs = m_nodes.pop()
+        m_nodes = my_ciq.nodesConf
+        m_active_node,m_active_attrs = m_nodes.popitem()
         return render_template('customer_node_list2.html', customer=m_customer, project=m_project, nodes=m_nodes, active_node=m_active_node, active_attrs=m_active_attrs, error =error)
 
     else:
         return jsonify({"errno": 1001, "errmsg": "CIQ parse failed"})
 #        return jsonify({"filename": f.filename})
 
+
+
+ 
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
