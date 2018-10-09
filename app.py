@@ -5,6 +5,8 @@ import time
 from CIQ_parser import *
 from CIQ_redis import *
 from CIQ_data import *
+import requests
+import predictionio
 
 app = Flask(__name__)
 app.secret_key = "ormuco"
@@ -14,6 +16,13 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 ALLOWED_EXTENSIONS = set(['xlsx', 'txt'])
 my_redis = CiqRedis()
 error = None
+
+@app.route('/engine1', methods = ['GET', 'POST'])
+def engine():
+    engine_client = predictionio.EngineClient(url="http://167.99.183.243:8000")
+    r=  engine_client.send_query({"items": ["i1"], "num": 4})
+
+    return render_template('engine1.html', customers = r, error = error)
 
 
 @app.route('/', methods = ['GET', 'POST'])

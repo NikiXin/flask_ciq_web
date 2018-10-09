@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <h1>Welcome to Void</h1>
+        <div class="response-group">
+        	<h1>{{customers}}</h1>
+            		< {% for customerName, customerValue in customers.iteritems() %}
+            		<a href="/customer_project_list?m_customer={{customerName,custerValue}}" class="list-group-item">{{customer}}</a>
+            {% endfor %} 
+        </div>
+
+
+
+{% endblock %}
