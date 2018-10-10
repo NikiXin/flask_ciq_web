@@ -1,14 +1,95 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Welcome to Flask!</h1>
-<br><br>
-<h3>Posts</h3>
-{% for post in posts %}
-    <strong>Title:</strong> {{ post.title }} <br>
-    <strong>Post:</strong> {{ post.description }} <br>
-<br>
-{% endfor %}
-<p>Click <a href="/logout">here</a> to logout. </p>
+  <head>
 
-{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>VOID</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/round-about.css" rel="stylesheet">
+
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="#">VOID Smart</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Example single danger button -->
+          <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Users
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">ehuamin</a>
+                <a class="dropdown-item" href="#">eniewei</a>
+                <a class="dropdown-item" href="#">eyneiux</a>
+            </div>
+        </div>
+          <!-- <a class="nav-link" href="#">User
+                  <span class="sr-only">(current)</span>
+          </a> -->
+          </li>
+          <!-- <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+          </li> -->
+          </ul>
+      </div>
+    </nav>
+  </body>
+
+
+<!-- <Page container> -->
+  <body>
+      <div class="container">
+          <h1 class="my-4">Faviorates</h1>
+
+  
+        <!-- child template -->
+        <!-- {% block content %}{% endblock %} -->
+  
+        <!-- errors -->
+        <!-- {% if error %}
+          <p class="error"><strong>Error:</strong> {{ error }}</p>
+        {% endif %} -->
+  
+        <!-- messages -->
+        {% for message in get_flashed_messages() %}
+          {{ message }}
+        {% endfor %}
+      </div>
+    </body>
+
+
+  <body>
+
+    
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; VOID 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

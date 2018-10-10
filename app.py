@@ -20,7 +20,7 @@ error = None
 @app.route('/engine1', methods = ['GET', 'POST'])
 def engine():
     engine_client = predictionio.EngineClient(url="http://167.99.183.243:8000")
-    r=  engine_client.send_query({"items": ["i1"], "num": 4})
+    r=  engine_client.send_query({"items": ["i1"], "num": 3})
 
     return render_template('engine1.html', customers = r, error = error)
 
