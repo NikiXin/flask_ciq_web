@@ -17,17 +17,32 @@ ALLOWED_EXTENSIONS = set(['xlsx', 'txt'])
 my_redis = CiqRedis()
 error = None
 
-@app.route('/engine1', methods = ['GET', 'POST'])
-def engine():
+
+# @app.route('/', method=['GET','POST'])
+# def users():
+#     names = ['eyneiux','eniewei','ehuamin']
+
+
+@app.route('/engine/<username>', methods = ['GET', 'POST'])
+def engine(username):
+    # username = request.form.get("names")
+    print username
+    # username = 'ekunnii'
+    favoriate_tools = my_redis.get_user_tool(username)
+    print favoriate_tools
     engine_client = predictionio.EngineClient(url="http://167.99.183.243:8000")
-    r=  engine_client.send_query({"items": ["i1"], "num": 3})
+    results = []
+    for tool in favoriate_tools:
+        print tool
+        results.append(engine_client.send_query({"items": [tool], "num": 3}))
+    print results
 
-    return render_template('engine1.html', customers = r, error = error)
+    return render_template('engine1.html', customers = results, error = error)
 
 
-@app.route('/', methods = ['GET', 'POST'])
-def home():
-    return redirect(url_for('getCustomerList'))
+# @app.route('/', methods = ['GET', 'POST'])
+# def home():
+#     return redirect(url_for('getCustomerList'))
 
 
 @app.route('/customer_list', methods = ['GET', 'POST'])

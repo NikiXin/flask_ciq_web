@@ -59,6 +59,7 @@ class CiqRedis:
 
     def read_tools(self):
         m_tools = self.r_conn.hgetall("tools")
+    
 
     def write_users(self):
         for user_id in self.m_users.keys():
@@ -73,6 +74,11 @@ class CiqRedis:
             m_user = self.r_conn.get(userid)
             r_dict = json.loads(m_user)
             self.m_users[userid] = r_dict 
+    
+    def get_user_tool(self,username):
+        user_tool = self.r_conn.lrange(username, 0, -1 )
+        return user_tool
+
 
     def set_user(self, user_id, profile=dict()):
         self.m_users[user_id] = profile
