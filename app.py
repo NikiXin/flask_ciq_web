@@ -29,22 +29,27 @@ def engine(username):
     print username
     # username = 'ekunnii'
     favoriate_tools = my_redis.get_user_tool(username)
+    role_tools = my_redis.get_user_tool('h'+username)
     print favoriate_tools
 
     engine_client = predictionio.EngineClient(url="http://167.99.183.243:8000")
     recommended_tool_properties = []
     favoriate_tool_properties = []
+    role_tool_properties =[]
+
     for tool in favoriate_tools:
         favoriate_tool_properties.append(my_redis.get_tool_properties(tool))
         temp = engine_client.send_query({"items": [tool], "num": 1})
         print 'test%s'%(temp['itemScores'][0]['item'])
         recommended_tool_properties.append(my_redis.get_tool_properties(temp['itemScores'][0]['item']))
 
+    for tool in role_tools:
+        role_tool_properties.append(my_redis.get_tool_properties(tool))
 
     print 'favoriate_tool_properties%s'%favoriate_tool_properties
     print 'recommended_tool_properties%s'%recommended_tool_properties
 
-    return render_template('engine.html', favoriate_tools = favoriate_tool_properties, recommended_tool = recommended_tool_properties, error = error)
+    return render_template('engine.html', favoriate_tools = favoriate_tool_properties, recommended_tool = recommended_tool_properties, role_tool = role_tool_properties, error = error)
 
 
 # @app.route('/', methods = ['GET', 'POST'])
