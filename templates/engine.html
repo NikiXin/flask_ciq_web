@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>Welcome to Void</h1>
+<div class="response-group">
+	<div class="row">
+		<!-- <div class="col-lg-12">
+					<h2 class="my-4">Faviorates</h2>
+		</div> -->
+
+
+		<div class="container">
+			<h1 class="my-4">Faviorates</h1>
+			<div class="row">
+				{% for results in favoriate_tools %}
+				<div class="col-lg-4 col-sm-6 text-center mb-4">
+					<img class="rounded-circle img-fluid d-block mx-auto" src="../static/img/hadoop3.png" alt="">
+					<h3>{{results[0]}}</h3>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	<div class="container">
+		<h1 class="my-4">Recommendation</h1>
+
+		<div class="row">
+			{% for results in recommended_tool %}
+			<div class="col-lg-4 col-sm-6 text-center mb-4">
+				<img class="rounded-circle img-fluid d-block mx-auto" src="../static/img/conan1.png" alt="">
+				<h3>{{results[0]}}</h3>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
