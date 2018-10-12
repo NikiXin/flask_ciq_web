@@ -88,3 +88,7 @@ class CiqRedis:
 
     def get_user_list(self):
         return self.m_users_list
+
+    def get_tool_properties(self,tool_id):
+        tool_properties = self.r_conn.lrange(tool_id, 0, -1)
+        return tool_properties

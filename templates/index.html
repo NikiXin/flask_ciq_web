@@ -32,8 +32,8 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="ehuamin">ehuamin</a>
-              <a class="dropdown-item" href="#">eniewei</a>
-              <a class="dropdown-item" href="#">eyneiux</a>
+              <a class="dropdown-item" href="eniewei">eniewei</a>
+              <a class="dropdown-item" href="eyneiux">eyneiux</a>
             </div>
           </div>
 
@@ -45,8 +45,7 @@
 
 <!-- <Page container> -->
   <body>
-      <div class="container">
-          <h1 class="my-4">Faviorates</h1>
+      
 
   
         <!-- child template -->
@@ -61,7 +60,7 @@
         {% for message in get_flashed_messages() %}
           {{ message }}
         {% endfor %}
-      </div>
+      
     </body>
 
 
@@ -80,6 +79,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="../static/vendor/jquery/jquery.min.js"></script>
     <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/dropdown.js"></script>
 
   </body>
 
