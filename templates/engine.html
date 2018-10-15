@@ -102,40 +102,14 @@
 								<h5 class="my-5">24H Hits </h5>
 						
 							<table class="table table-striped">
-								<!-- <thead>
-									<tr>
-										<th scope="col"></th>
-										<h5 class="my-5">24H Hits </h5>
-										<th scope="col"></th>
-				
-									</tr>
-								</thead> -->
+								
 								<tbody>
+									{% for hit in hit_tools %}
 									<tr>
-										<th scope="row">1</th>
-										<td>ESS</td>
-										<th scope="col"><span class="glyphicon glyphicon-envelope"></span><i class="glyphicon glyphicon-fire"></i></th>
+										<th scope="row">{{hit[0]}}</th>
+										<td><a class="text-dark" href="{{hit[2]}}">{{hit[1]}}</a></td>
 									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>CWT</td>
-										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td>Concur</td>
-										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
-									</tr>
-									<tr>
-										<th scope="row">4</th>
-										<td>ELEX</td>
-										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
-									</tr>
-									<tr>
-										<th scope="row">5</th>
-										<td>Yammer</td>
-										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
-									</tr>
+									{% endfor %}
 								</tbody>
 							</table>
 				

@@ -63,8 +63,23 @@ def engine(username):
             name = name.replace('_',' ')
         tool_name.append(name)
 
+
+
+    engine_client = predictionio.EngineClient(url="http://172.17.0.2:8001")
+    hit_tools = []
+    hits = engine_client.send_query({})
+    temp = hits['itemScores']
+    
+    for num in range(0,6):
+        if temp[num]['item'] != 'Surface':
+            hit_tools.append([num, my_redis.get_tool_properties(temp[num]['item'])[2], my_redis.get_tool_properties(temp[num]['item'])[1]])
+        
+
+    print "hit_tools %s" %hit_tools
+
+
     # print 'favoriate_tool_properties%s'%favoriate_tool_properties
-    return render_template('engine.html', username = username, favoriate_tools = favoriate_tool_properties, recommended_tool = recommended_tool_properties, role_tool = role_tool_properties, tool_name = tool_name, error = error)
+    return render_template('engine.html', username = username, favoriate_tools = favoriate_tool_properties, recommended_tool = recommended_tool_properties, role_tool = role_tool_properties, tool_name = tool_name, hit_tools=hit_tools,error = error)
 
 
 # @app.route('/', methods = ['GET', 'POST'])
