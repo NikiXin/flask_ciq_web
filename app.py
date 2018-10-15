@@ -29,6 +29,7 @@ def engine(username):
     favoriate_tool_properties = []
     role_tool_properties = []
     tool_name = []
+    recommended_tool_ids = []
 
     for num in range(0,len(favoriate_tools)):
         current_favoriate = my_redis.get_tool_properties(favoriate_tools[num]) 
@@ -36,16 +37,21 @@ def engine(username):
         current_favoriate_name = current_favoriate[2]
         print favoriate_tool_properties, current_favoriate_name
         temp = ''
+        
         if num == 0:
-            print favoriate_tools[num]
             temp = engine_client.send_query({"items": [favoriate_tools[num]], "num": 2})
-            recommended_tool_properties.append([current_favoriate_name,my_redis.get_tool_properties(temp['itemScores'][0]['item'])])
-            recommended_tool_properties.append([current_favoriate_name,my_redis.get_tool_properties(temp['itemScores'][1]['item'])])
-
+            recommended_tool_ids.append([current_favoriate_name, temp['itemScores'][0]['item']])
+            recommended_tool_ids.append([current_favoriate_name, temp['itemScores'][1]['item']])
         else:
-            temp = engine_client.send_query({"items": [favoriate_tools[num]], "num": 1})
-        # print 'test%s'%(temp['itemScores'][0]['item'])
-            recommended_tool_properties.append([current_favoriate_name, my_redis.get_tool_properties(temp['itemScores'][0]['item'])])
+            temp = engine_client.send_query({"items": [favoriate_tools[num]], "num": 4})
+            temp_id = [item[1] for item in recommended_tool_ids]
+            for item in temp['itemScores']:
+                if item['item'] not in temp_id:
+                    print '%s not in %s' %(item['item'], temp_id)
+                    recommended_tool_ids.append([current_favoriate_name, item['item']])
+                    break
+    for item in recommended_tool_ids:
+        recommended_tool_properties.append([item[0],my_redis.get_tool_properties(item[1])])
 
     for tool in role_tools:
         role_tool_properties.append(my_redis.get_tool_properties(tool))
@@ -57,9 +63,7 @@ def engine(username):
             name = name.replace('_',' ')
         tool_name.append(name)
 
-    print 'favoriate_tool_properties%s'%favoriate_tool_properties
-    print 'recommended_tool_properties%s'%recommended_tool_properties
-
+    # print 'favoriate_tool_properties%s'%favoriate_tool_properties
     return render_template('engine.html', username = username, favoriate_tools = favoriate_tool_properties, recommended_tool = recommended_tool_properties, role_tool = role_tool_properties, tool_name = tool_name, error = error)
 
 

@@ -66,7 +66,7 @@
 										{% for results in favoriate_tools %}
 											<div class="col-6 col-lg-2">
 												<a href="{{results[1]}}"><img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image"></a>
-												<h5><p class="text-dark">{{results[2]}}</p></h5>
+												<h6><p class="text-dark">{{results[2]}}</p></h6>
 											</div>
 										{% endfor %}
 									</div>
@@ -77,21 +77,21 @@
 										{% for results in recommended_tool %}
 										<div class="col-6 col-lg-2">
 											<a href="{{results[1][1]}}"><img class="img-fluid" src="../static/img/{{results[1][0]}}" alt="Responsive image"></a>
-											<h5><p class="text-dark">{{results[1][2]}}</p></h5>
+											<h6><p class="text-dark">{{results[1][2]}}</p></h6>
 											<p class="text-muted"><small>because you like {{results[0]}}</small></p>
 										</div>
 										{% endfor %}
 									</div>
 							</div>
 				
-							<div class="border-top my-1"></div>
+							<div class="border-top my-5"></div>
 							<div class="container">
-								<h5 class="my-4">People in the same field are also using:</h5>
+								<h5 class="my-4">People in your field are also using:</h5>
 								<div class="row">
 									{% for results in role_tool %}
 									<div class="col-6 col-lg-2">
 										<a href="{{results[1]}}"><img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image"></a>
-										<h5><p class="text-dark">{{results[2]}}</p></h5>
+										<h6><p class="text-dark">{{results[2]}}</p></h6>
 									</div>
 									{% endfor %}
 								</div>
@@ -118,22 +118,22 @@
 									</tr>
 									<tr>
 										<th scope="row">2</th>
-										<td>ASS</td>
+										<td>CWT</td>
 										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
 									</tr>
 									<tr>
 										<th scope="row">3</th>
-										<td>BSS</td>
+										<td>Concur</td>
 										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
 									</tr>
 									<tr>
 										<th scope="row">4</th>
-										<td>DSS</td>
+										<td>ELEX</td>
 										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
 									</tr>
 									<tr>
 										<th scope="row">5</th>
-										<td>ESS</td>
+										<td>Yammer</td>
 										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
 									</tr>
 								</tbody>
