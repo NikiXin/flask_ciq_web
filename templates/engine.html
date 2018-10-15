@@ -60,25 +60,25 @@
 					<div class="row row-offcanvas row-offcanvas-right">	
 						<div class="col-12 col-md-8">
 							<div class="container">
-									<h3 class="my-5">Favorites <a href="#menu-toggle" class="btn btn-secondary" type="button" id="menu-toggle" >Choose Favorites</a> </h3> 
+									<h5 class="my-5">Favorites <a href="#menu-toggle" id="menu-toggle" class="text-dark"><small><u>Edit</u></small></a> </h5> 
 
 
 									<div class="row">
 										{% for results in favoriate_tools %}
 											<div class="col-6 col-lg-2">
-												<img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image">
-												<h5><a href="{{results[1]}}"><p class="text-dark">{{results[2]}}</p></a></h5>
+												<a href="{{results[1]}}"><img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image"></a>
+												<h5><p class="text-dark">{{results[2]}}</p></h5>
 											</div>
 										{% endfor %}
 									</div>
 				
 								<div class="border-top my-5"></div>
-								<h5 class="my-4">Because you like {{favoriate_tools[0][2]}}, {{favoriate_tools[1][2]}}, {{favoriate_tools[2][2]}}:</h5>
+								<h5 class="my-4">Recommended:</h5>
 									<div class="row">
 										{% for results in recommended_tool %}
 										<div class="col-6 col-lg-2">
-											<img class="img-fluid" src="../static/img/{{results[1][0]}}" alt="Responsive image">
-											<h5><a href="{{results[1][1]}}"><p class="text-dark">{{results[1][2]}}</p></a></h5>
+											<a href="{{results[1][1]}}"><img class="img-fluid" src="../static/img/{{results[1][0]}}" alt="Responsive image"></a>
+											<h5><p class="text-dark">{{results[1][2]}}</p></h5>
 											<p class="text-muted"><small>because you like {{results[0]}}</small></p>
 										</div>
 										{% endfor %}
@@ -87,12 +87,12 @@
 				
 							<div class="border-top my-1"></div>
 							<div class="container">
-								<h5 class="my-4">People like you are using:</h5>
+								<h5 class="my-4">People in the same field are also using:</h5>
 								<div class="row">
 									{% for results in role_tool %}
 									<div class="col-6 col-lg-2">
-										<img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image">
-										<h5><a href="{{results[1]}}"><p class="text-dark">{{results[2]}}</p></a></h5>
+										<a href="{{results[1]}}"><img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image"></a>
+										<h5><p class="text-dark">{{results[2]}}</p></h5>
 									</div>
 									{% endfor %}
 								</div>
@@ -100,16 +100,17 @@
 						</div>
 				
 						<div class="col-6 col-md-3 sidebar-offcanvas my-4" id="sidebar">
+								<h5 class="my-5">24H Hits </h5>
 						
 							<table class="table table-striped">
-								<thead>
+								<!-- <thead>
 									<tr>
 										<th scope="col"></th>
-										<th scope="col">24H Hits</th>
+										<h5 class="my-5">24H Hits </h5>
 										<th scope="col"></th>
 				
 									</tr>
-								</thead>
+								</thead> -->
 								<tbody>
 									<tr>
 										<th scope="row">1</th>
