@@ -13,7 +13,6 @@
 			</li>
 			{% for name in tool_name%}
 				<li id ={{name}} class="list-group-item-action">{{name}}</li>
-						<!-- <a href="#">{{name}}</a> -->
 				</li>
 			{% endfor %}
 			
@@ -22,39 +21,39 @@
 
 
 		<div id="page-content-wrapper">
-			<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#426493;">
-				<div class="container">
-					<a class="navbar-brand" href="#" class="pull-left">
-						<img src="../static/img/ericsson.png"  width="30" height="10">
-						<span style="display: inline-block;">
-							<h4>eHome</h4>
-						</span>
-					</a>
-					
-
-					<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="selectButton" data-toggle="dropdown">
-							{{username}}
-							<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu scrollable-menu" id="ulGenres">
+				<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#426493;">
+					<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+						<ul class="navbar-nav mr-auto">
 							<li>
-									<a class="dropdown-item" href="ehuamin">ehuamin</a>
+									<img src="../static/img/ericsson.png"  width="30" height="10">
+									<span style="display: inline-block;"> <h4 class="text-white">eHome</h4> </span>
 							</li>
-							<li>
-									<a class="dropdown-item" href="eniewei">eniewei</a>
-							</li>
-							<li>
-									<a class="dropdown-item" href="eyneiux">eyneiux</a>
-							</li>
-							<li>
-									<a class="dropdown-item"  href="ekunnii">ekunnii</a>
-							</li>
-							</ul>
+						</ul>
 					</div>
-								
-				</div>
-			</nav>
+
+					
+							
+						<div class="dropdown nav navbar-nav navbar-right">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="selectButton" data-toggle="dropdown">
+								{{username}}
+								<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu scrollable-menu" id="ulGenres">
+								<li>
+												<a class="dropdown-item" href="ehuamin">ehuamin</a>
+								</li>
+								<li>
+												<a class="dropdown-item" href="eniewei">eniewei</a>
+								</li>
+								<li>
+												<a class="dropdown-item" href="eyneiux">eyneiux</a>
+								</li>
+								<li>
+												<a class="dropdown-item"  href="ekunnii">ekunnii</a>
+								</li>
+								</ul>
+						</div>
+				</nav>
 		</div>
 				<div class="container-fluid">
 					<div class="row row-offcanvas row-offcanvas-right">	
