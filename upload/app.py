@@ -17,55 +17,19 @@ ALLOWED_EXTENSIONS = set(['xlsx', 'txt'])
 my_redis = CiqRedis()
 error = None
 
-
-
-@app.route('/engine/<username>', methods =['GET','POST'])
-def engine(username):
-    favoriate_tools = my_redis.get_user_tool(username)
-    role_tools = my_redis.get_user_tool('h'+username)
-
+@app.route('/engine1', methods = ['GET', 'POST'])
+def engine():
+    name = request.form.get('names')
+    print name
     engine_client = predictionio.EngineClient(url="http://167.99.183.243:8000")
-    recommended_tool_properties = []
-    favoriate_tool_properties = []
-    role_tool_properties = []
-    tool_name = []
+    r=  engine_client.send_query({"items": ["i1"], "num": 3})
 
-    for num in range(0,len(favoriate_tools)):
-        current_favoriate = my_redis.get_tool_properties(favoriate_tools[num]) 
-        favoriate_tool_properties.append(current_favoriate)
-        current_favoriate_name = current_favoriate[2]
-        print favoriate_tool_properties, current_favoriate_name
-        temp = ''
-        if num == 0:
-            print favoriate_tools[num]
-            temp = engine_client.send_query({"items": [favoriate_tools[num]], "num": 2})
-            recommended_tool_properties.append([current_favoriate_name,my_redis.get_tool_properties(temp['itemScores'][0]['item'])])
-            recommended_tool_properties.append([current_favoriate_name,my_redis.get_tool_properties(temp['itemScores'][1]['item'])])
-
-        else:
-            temp = engine_client.send_query({"items": [favoriate_tools[num]], "num": 1})
-        # print 'test%s'%(temp['itemScores'][0]['item'])
-            recommended_tool_properties.append([current_favoriate_name, my_redis.get_tool_properties(temp['itemScores'][0]['item'])])
-
-    for tool in role_tools:
-        role_tool_properties.append(my_redis.get_tool_properties(tool))
-
-    tools = my_redis.get_tool_properties('tools')
-    for tool in tools:
-        name = my_redis.get_tool_properties(tool)[2]
-        if '_' in name:
-            name = name.replace('_',' ')
-        tool_name.append(name)
-
-    print 'favoriate_tool_properties%s'%favoriate_tool_properties
-    print 'recommended_tool_properties%s'%recommended_tool_properties
-
-    return render_template('engine.html', username = username, favoriate_tools = favoriate_tool_properties, recommended_tool = recommended_tool_properties, role_tool = role_tool_properties, tool_name = tool_name, error = error)
+    return render_template('engine1.html', customers = r, error = error)
 
 
-# @app.route('/', methods = ['GET', 'POST'])
-# def home():
-#     return redirect(url_for('index'))
+@app.route('/', methods = ['GET', 'POST'])
+def home():
+    return redirect(url_for('getCustomerList'))
 
 
 @app.route('/customer_list', methods = ['GET', 'POST'])

@@ -1,71 +1,163 @@
 {% extends "index.html" %}
 {% block content %}
 
-<h1>Welcome to Void</h1>
-<div class="response-group">
-	<div class="row">
-		<!-- <div class="col-lg-12">
-					<h2 class="my-4">Faviorates</h2>
-		</div> -->
-	<div class="row row-offcanvas row-offcanvas-right">	
-		<div class="col-12 col-md-9">
-			<div class="container">
-				<div class="jumbotron">
-					<h1 class="my-4">Faviorates</h1>
-					<div class="row">
-						{% for results in favoriate_tools %}
-						<div class="col-6 col-lg-4">
-							<img class="rounded-circle img-fluid d-block mx-auto" src="../static/img/hadoop3.png" alt="">
-							<h3><a href="{{results[1]}}">{{results[0]}}</a></h3>
-						</div>
-						{% endfor %}
-					</div>
-				</div>
+<!-- <h3>Welcome to Void</h3> -->
 
-
-				<h1 class="my-4">Recommendation</h1>
-					<div class="row">
-						{% for results in recommended_tool %}
-						<div class="col-6 col-lg-4">
-							<img class="rounded-circle img-fluid d-block mx-auto" src="../static/img/conan1.png" alt="">
-							<h3><a href="{{results[1]}}">{{results[0]}}</a></h3>
-						</div>
-						{% endfor %}
-					</div>
-			</div>
-
-			<div class="container">
-				<h1 class="my-4">Roles Recommendation</h1>
-				<div class="row">
-					{% for results in role_tool %}
-					<div class="col-6 col-lg-4">
-						<img class="card h-100" src="../static/img/conan1.png" alt="">
-						<h3><a href="{{results[1]}}">{{results[0]}}</a></h3>
-					</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-
-		<div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
-			<h1 class="my-3">24 Hours Hits</h1>
-			<div class="progress" style="height: 30px;">
-				<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">ESS</div>
-			</div>
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand">
+					<a href="#">
+							Tools
+					</a>
+			</li>
+			{% for name in tool_name%}
+				<li>
+						<a href="#">{{name}}</a>
+				</li>
+			{% endfor %}
 			
-			<div class="progress" style="height: 30px;">
-				<!-- <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">SMS</div> -->
-				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">SMS</div>
-			</div>
-			</div>
-
-			<div class="progress" style="height: 30px;">
-				<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">ALEX</div>
-			</div>
-		</div>
+		</ul>
 	</div>
 
 
+		<div id="page-content-wrapper">
+			<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#426493;">
+				<div class="container">
+					<a class="navbar-brand" href="#" class="pull-left">
+						<img src="../static/img/ericsson.png"  width="30" height="10">
+						<span style="display: inline-block;">
+							<h4>eHome</h4>
+						</span>
+					</a>
+					
+
+					<!-- Example single danger button -->
+					<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="selectButton" data-toggle="dropdown">
+							{{username}}
+							<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu scrollable-menu" id="ulGenres">
+							<li>
+									<a class="dropdown-item" href="ehuamin">ehuamin</a>
+							</li>
+							<li>
+									<a class="dropdown-item" href="eniewei">eniewei</a>
+							</li>
+							<li>
+									<a class="dropdown-item" href="eyneiux">eyneiux</a>
+							</li>
+							<li>
+									<a class="dropdown-item"  href="ekunnii">ekunnii</a>
+							</li>
+							</ul>
+					</div>
+								
+				</div>
+			</nav>
+		</div>
+				<div class="container-fluid">
+					<div class="row row-offcanvas row-offcanvas-right">	
+						<div class="col-12 col-md-8">
+							<div class="container">
+									<h3 class="my-5">Favorites <a href="#menu-toggle" class="btn btn-secondary" type="button" id="menu-toggle" >Choose Favorites</a> </h3> 
+
+
+									<div class="row">
+										{% for results in favoriate_tools %}
+											<div class="col-6 col-lg-2">
+												<img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image">
+												<h5><a href="{{results[1]}}"><p class="text-dark">{{results[2]}}</p></a></h5>
+											</div>
+										{% endfor %}
+									</div>
+				
+								<div class="border-top my-5"></div>
+								<h5 class="my-4">Because you like {{favoriate_tools[0][2]}}, {{favoriate_tools[1][2]}}, {{favoriate_tools[2][2]}}:</h5>
+									<div class="row">
+										{% for results in recommended_tool %}
+										<div class="col-6 col-lg-2">
+											<img class="img-fluid" src="../static/img/{{results[1][0]}}" alt="Responsive image">
+											<h5><a href="{{results[1][1]}}"><p class="text-dark">{{results[1][2]}}</p></a></h5>
+											<p class="text-muted">because you like {{results[0]}}</p>
+										</div>
+										{% endfor %}
+									</div>
+							</div>
+				
+							<div class="border-top my-1"></div>
+							<div class="container">
+								<h5 class="my-4">People like you are using:</h5>
+								<div class="row">
+									{% for results in role_tool %}
+									<div class="col-6 col-lg-2">
+										<img class="img-fluid" src="../static/img/{{results[0]}}" alt="Responsive image">
+										<h5><a href="{{results[1]}}"><p class="text-dark">{{results[2]}}</p></a></h5>
+									</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+				
+						<div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+						
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col"></th>
+										<th scope="col">24H Hits</th>
+										<th scope="col"></th>
+				
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>ESS</td>
+										<th scope="col"><span class="glyphicon glyphicon-envelope"></span><i class="glyphicon glyphicon-fire"></i></th>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>ASS</td>
+										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>BSS</td>
+										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>DSS</td>
+										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
+									</tr>
+									<tr>
+										<th scope="row">5</th>
+										<td>ESS</td>
+										<th scope="col"><i class="glyphicon glyphicon-fire"></i></th>
+									</tr>
+								</tbody>
+							</table>
+				
+						</div>
+					</div>
+						
+		
+				</div>
+		</div>
+		
+				<div class="row">
+					<!-- <div class="col-lg-12">
+								<h2 class="my-4">Faviorates</h2>
+					</div> -->
+				
+			
+			
+			</div>
 </div>
+
+
+
 
 {% endblock %}
