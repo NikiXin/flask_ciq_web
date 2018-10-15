@@ -79,6 +79,9 @@ img {
 .sidebar-nav li {
   text-indent: 20px;
   line-height: 40px;
+  display: block;
+  text-decoration: none;
+  color: #999999
 }
 
 .sidebar-nav li a {
