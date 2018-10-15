@@ -9,13 +9,12 @@
     <title>VOID</title>
     <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/simple-sidebar.css" rel="stylesheet">
-    <!-- <link href="../static/navbar.css" rel="stylesheet"> -->
     <link href="../static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     
 </head>
 
 <body>
-    <!-- {% block content %}{% endblock %} -->
+    {% block content %}{% endblock %}
     {% for message in get_flashed_messages() %}
         {{ message }}
     {% endfor %}
